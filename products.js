@@ -3267,45 +3267,36 @@ const jsonStringData = JSON.stringify({
     ]
 });
 
-//parsedData is now present
+
 //console.log(typeof parsedData);
 
-//We get the json data and stringify than we parse into a object
-//goal is to extract all title names to search with strings
-//searches by index number
-function jsonProducts(index) {
-    const obj = JSON.parse(jsonStringData);
-    const objProducts = obj.products;
-    return objProducts[index]
+//We can get the json data and stringify than we may parse into an object
+//goal is to extract all title names to search with strings ***
+
+
+function searchProduct(array, index) {
+    newArray = array();
+    return newArray[index];
 }
+console.log(searchProduct(jsonProducts, 0)) //search by index
 
 
-console.log(jsonProducts(5)); //Parses to an object containing products information
-let products = [];
 
-//pushed products titles to products
-function pushProduct(productCallback) {
-    products.push(productCallback());
-}
-
-//iterates over array product names or titles
-function productList() {
-    {
-        let products = [];
-        {
-            for (i = 0; i < obj.products.length; i++) {
-                products.push(obj.products[i].title);
-            }
-        }
-        return products;
+//loops over an array
+const productTitles = [];
+function loopOverProducts(array) {
+    const newArray = array();
+    for (let i = 0; i < newArray.length; i++) {
+        productTitles.push(newArray[i].title)
     }
+    return productTitles;
+}
+
+function jsonProducts() {
+    const obj = JSON.parse(jsonStringData);
+    const arrayProducts = obj.products;
+    return arrayProducts //returns array of objects
 }
 
 
-
-//onsole.log(pushProduct(productList));
-
-//console.log(products);
-//products.push(productName);
-
-///console.log(products);
+//console.log(loopOverProducts(jsonProducts));  
